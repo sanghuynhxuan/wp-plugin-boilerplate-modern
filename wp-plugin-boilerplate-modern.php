@@ -1,28 +1,19 @@
 <?php
 /**
  * Plugin Name: Modern WordPress Plugin Boilerplate
- * Description: A clean, object-oriented WordPress plugin boilerplate for client-specific functionality.
- * Version: 0.1.0
+ * Description: A modern plugin baseline that registers a REST-enabled private client-note content type.
+ * Version: 1.0.0
  * Author: Sang Huynh Xuan
  * License: GPL-2.0-or-later
  */
 
 declare(strict_types=1);
 
-namespace SangPortfolio;
+if (! defined('ABSPATH')) { exit; }
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+require_once __DIR__ . '/includes/Support.php';
+require_once __DIR__ . '/includes/Feature.php';
 
-final class WpPluginBoilerplateModernPlugin {
-    public function __construct() {
-        add_action('init', [$this, 'bootstrap']);
-    }
-
-    public function bootstrap(): void {
-        do_action('sang_portfolio_wp_plugin_boilerplate_modern_ready');
-    }
-}
-
-new WpPluginBoilerplateModernPlugin();
+add_action('plugins_loaded', static function (): void {
+    (new \SangPortfolio\WpPluginBoilerplateModernFeature())->register();
+});
