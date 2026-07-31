@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace SangPortfolio;
+namespace SangPortfolio\WpPluginBoilerplateModern;
 if (! defined('ABSPATH')) { exit; }
-final class WpPluginBoilerplateModernFeature {
+final class Feature {
     private const OPTION = 'wp_plugin_boilerplate_modern_enabled';
     private const SLUG = 'wp-plugin-boilerplate-modern';
     private const TITLE = 'Modern WordPress Plugin Boilerplate';
